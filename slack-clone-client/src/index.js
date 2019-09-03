@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Routes from './routes';
-import Home from './components/Home/Home'
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
+import 'semantic-ui-css/semantic.min.css';
+
 
 
 const client = new ApolloClient({
@@ -13,7 +14,7 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <Home />
+    <Routes />
   </ApolloProvider>
 );
 
