@@ -38,7 +38,7 @@ class Register extends Component {
     }
     onChangeHandler = (event) => {
         const { name, value } = event.target
-        this.setState({ [name]: value });
+        this.setState({ [name]: value, [name + 'Error']: '' })
     }
     render() {
 
@@ -57,23 +57,23 @@ class Register extends Component {
         return (
             <Container text>
                 <Header as="h2">Register</Header>
-                {(usernameError || emailError || passwordError) && <Message
+                {(errorList.length !== 0) && <Message
                     error
                     header='There was some errors with your submission'
                     list={errorList}
                 />}
                 <Form onSubmit={this.onSubmitHandler}>
-                    <Form.Field>
+                    <Form.Field error={!!usernameError}>
                         <label>Username</label>
-                        <Input name="username" placeholder='Username' error={!!usernameError} fluid value={username} onChange={this.onChangeHandler} />
+                        <Input name="username" placeholder='Username' fluid value={username} onChange={this.onChangeHandler} />
                     </Form.Field>
-                    <Form.Field>
+                    <Form.Field error={!!emailError} >
                         <label>Email</label>
-                        <Input name="email" placeholder='Email' error={!!emailError} fluid value={email} onChange={this.onChangeHandler} />
+                        <Input name="email" placeholder='Email' fluid value={email} onChange={this.onChangeHandler} />
                     </Form.Field>
-                    <Form.Field>
+                    <Form.Field error={!!passwordError}>
                         <label>Password</label>
-                        <Input name="password" type="password" error={!!passwordError} placeholder='*********' fluid value={password} onChange={this.onChangeHandler} autoComplete="current-password" />
+                        <Input name="password" type="password" placeholder='*********' fluid value={password} onChange={this.onChangeHandler} autoComplete="current-password" />
                     </Form.Field>
 
                     <Button type='submit' >Submit</Button>

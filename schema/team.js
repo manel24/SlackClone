@@ -9,8 +9,13 @@ type Team {
 }
 
 type Mutation {
-    createTeam(name: String! ): Boolean!
+    createTeam(name: String! ): CreateTeamResponse!
 }
+
+type CreateTeamResponse {
+    ok: Boolean!
+    errors: [Error!]
+  }
 
 type Query {
     getTeam(id:Int!): Team!
