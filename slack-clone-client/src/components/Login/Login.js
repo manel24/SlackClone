@@ -21,10 +21,11 @@ class Login extends Component {
     onSubmitHandler = async () => {
         const { email, password } = this;
         const response = await this.props.mutate({ variables: { email, password } })
-        const { ok, errors } = response.data.login;
+        const { ok, token, refreshToken, errors } = response.data.login;
         if (ok) {
             console.log('user logged in successfully!');
-            this.props.history.push('/')
+            localStorage.setItem('token', token);
+            localStorage.setItem('refreshToken', refreshToken);
         }
         if (errors) {
             // const err = {};
