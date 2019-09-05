@@ -16,7 +16,15 @@ export default `
     errors: [Error!]
   }
 
+  type LoginResponse {
+    ok: Boolean!
+    errors: [Error!]
+    token: String
+    refreshToken: String
+  }
+
   type Mutation {
     register(username: String!, email: String!, password: String!): RegisterResponse!
+    login(email: String!, password: String!): LoginResponse!
   }
 `;
