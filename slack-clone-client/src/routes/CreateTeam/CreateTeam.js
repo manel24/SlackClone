@@ -29,7 +29,7 @@ class CreateTeam extends Component {
             return;
         }
         const { ok, errors } = response.data.createTeam;
-        if (ok) {
+        if (ok) { 
             this.props.history.push('/');
             console.log('Team created  successfully!');
         }

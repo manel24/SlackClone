@@ -1,8 +1,9 @@
 import React from 'react';
-import Home from '../components/Home/Home';
-import Register from '../components/Register/Register';
-import Login from '../components/Login/Login';
-import CreateTeam from '../components/CreateTeam/CreateTeam';
+import Home from './Home/Home';
+import Register from './Register/Register';
+import Login from './Login/Login';
+import CreateTeam from './CreateTeam/CreateTeam';
+import ViewTeam from './ViewTeam/ViewTeam';
 import decode from 'jwt-decode';
 
 import {
@@ -11,7 +12,6 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom';
-import ViewTeam from '../components/ViewTeam/ViewTeam';
 
 const isAuthenticated = () => {
     const token = localStorage.getItem('token');

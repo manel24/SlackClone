@@ -10,6 +10,7 @@ type Team {
 
 type Mutation {
     createTeam(name: String! ): CreateTeamResponse!
+    Team: Channel
 }
 
 type CreateTeamResponse {

@@ -4,7 +4,7 @@ const DB = 'slack';
 const USER = 'root';
 const PASSWORD = 'root';
 const DIALECT = 'mysql';
- 
+
 
 const sequelize = new Sequelize(
     DB,
@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
     PASSWORD,
     {
         dialect: DIALECT,
+        operatorAliases: Sequelize.Op, 
     }
 )
 // const sequelize = new Sequelize("slack", "postgres", "postgres", { dialect: 'postgres' });
